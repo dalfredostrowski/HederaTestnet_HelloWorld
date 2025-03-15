@@ -1,0 +1,103 @@
+overview: 
+1) Obtain hedera credential "sign in to your hedera developer portal account"
+2) install base software
+3) dowload hedera git repository
+4) configure
+5) test 
+6) start hardhat console
+
+1) 
+
+go to 
+https://portal.hedera.com/login
+follow steps from powerpoint / video
+
+
+2) 
+ls
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl gnupg
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+NODE_MAJOR=22
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+sudo apt-get update
+sudo apt-get install nodejs -y
+npm install web3
+npm install --save-dev @nomiclabs/hardhat-ethers ethers @nomiclabs/hardhat-waffle ethereum-waffle chai
+npm i @openzeppelin/contracts@4.5.0
+git clone https://github.com/hashgraph/hedera-hardhat-example-project.git
+ls
+cd hedera-hardhat-example-project/
+ls
+vi hardhat.config.js
+< edit out the 'local'  > 
+
+npm install
+
+cp .env.example .env
+vi .env
+<add the priveate key from your developer resource>
+
+source .env
+
+npx hardhat console --network testnet
+
+
+
+
+
+
+Welcome to Node.js v22.14.0.
+Type ".help" for more information.
+> const MyContract = await ethers.getContractFactory("Greeter")
+undefined
+> const greeter = await MyContract.deploy("inital_msg")
+undefined
+> greeter.address
+'0x6df5803327Fb00258E817a2C3259CaF1Ef203354'
+> greeter.setGreeting("xxxx")
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 1355,
+  [Symbol(trigger_async_id_symbol)]: 14
+}
+> greeter.greet()
+Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 2391,
+  [Symbol(trigger_async_id_symbol)]: 14
+}
+> await greeter.greet()
+'xxxx'
+>
+
+
+
+
+Type ".help" for more information.
+> const wallet = (await ethers.getSigners())[0]
+> wallet.address
+<engter in faucet to receive more test hbar> 
+
+> const balance = (await wallet.getBalance()).toString()
+undefined
+> balance
+'199627474730000000000'
+
+
+
+<go to portal and enter your wallet address for more funds>
+
+<https://hashscan.io/testnet/dashboard>
+
+https://portal.hedera.com/faucet
+https://docs.hedera.com/hedera/tutorials/more-tutorials/create-and-fund-your-hedera-testnet-account
+https://dev.uniultra.xyz/docs/tutorials/smart-contracts/deploy-a-smart-contract-using-hardhat
+https://github.com/dro20dayethereumchallenge/day2/blob/main/contracts/Hello.sol
+https://github.com/dro20dayethereumchallenge/day1/blob/main/readme_install
+https://ethereum.stackexchange.com/questions/95023/hardhat-how-to-interact-with-a-deployed-contract
+
+https://portal.hedera.com/faucet
+
+
