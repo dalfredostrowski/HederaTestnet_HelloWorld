@@ -41,6 +41,8 @@ vi .env
 
 source .env
 
+
+npx hardhat test
 npx hardhat console --network testnet
 
 
