@@ -58,7 +58,7 @@ undefined
 undefined
 > greeter.address
 '0x6df5803327Fb00258E817a2C3259CaF1Ef203354'
-> greeter.setGreeting("xxxx")
+> greeter.setGreeting("hi")
 Promise {
   <pending>,
   [Symbol(async_id_symbol)]: 1355,
@@ -71,7 +71,7 @@ Promise {
   [Symbol(trigger_async_id_symbol)]: 14
 }
 > await greeter.greet()
-'xxxx'
+'hi'
 >
 
 
